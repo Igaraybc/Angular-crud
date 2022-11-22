@@ -1,0 +1,15 @@
+<div class="card">
+    <div class="card-header">
+        <span style="margin-left: 12px;">Selecione por período:</span>
+        <select name="mes1" (change)="onChangeSelect($event.target)" class="select-form">
+            <option *ngFor="let label of chartData.xLabels" [value]="label">{{ label }}</option>
+        </select>
+        <select name="mes2" (change)="onChangeSelect($event.target)" class="select-form">
+            <option *ngFor="let label of chartData.xLabels.slice(mes1)" [value]="label" selected>{{ label }}</option>
+        </select>
+        <button (click)="onClick()" class="btn-dark">Aplicar</button>
+    </div>
+    <div class="card-body">
+        <canvas #chartBar style="min-height: 60vh;"></canvas>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<section class="menu">
+  <div *ngIf="!icon" class="sidebar-container d-flex flex-column flex-shrink-0" style="width: 250px;">
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a routerLink="/fornecedor" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <i class="fa fa-truck m-r"></i>
+          Fornecedores
+        </a>
+      </li>
+      <hr>
+      <li>
+        <a routerLink="/grafico" class="nav-link" routerLinkActive="active">
+          <i class="fa fa-chart-pie m-r"></i>
+          Gráfico
+        </a>
+      </li>
+
+    </ul>
+  </div>
+
+
+  <div *ngIf="icon" class="d-flex flex-column flex-shrink-0 bg-light sidebar-container-icon">
+    <ul class="nav flex-column mb-auto text-center">
+      <li class="nav-item">
+        <a routerLink="/fornecedor" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <i class="fa fa-truck"></i>
+        </a>
+      </li>
+      <hr>
+      <li>
+        <a routerLink="/grafico" class="nav-link" routerLinkActive="active">
+          <i class="fa fa-chart-pie"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>

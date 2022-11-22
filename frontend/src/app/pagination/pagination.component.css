@@ -1,0 +1,25 @@
+.pagination-input{
+    border: none;
+    padding: 0;
+}
+
+input{
+    width: 25px;
+}
+
+a{
+    cursor: pointer;
+}
+
+.nav-pagination{
+    display: flex;
+    justify-content: space-between;
+}
+
+.select-pages{
+    width: 5rem;
+}
+
+.pagination{
+    align-items: center;
+}

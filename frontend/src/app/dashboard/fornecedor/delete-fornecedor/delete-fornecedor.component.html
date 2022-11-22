@@ -1,0 +1,24 @@
+<div *ngIf="modal">
+    <div class="overlay" (click)="cancel()"></div>
+    <section class="form-fornecedor">
+        <div class="width-modal container">
+            <div class="card" [class]="classModal">
+                <div class="card-body text-center">
+                    <img src="assets/images/icon-delete.png" class="icon-modal">
+                    <img src="assets/images/botao-x.png" class="icon-close" (click)="cancel()">
+                    <h3 class="title">Deseja deletar {{nomeEmpresa}}?</h3>
+                    <h5 class="text-delete mb-5">Isso irá deletar o fornecedor da sua lista de fornecedores.
+                        <p style="margin-top: 20px;">Tem certeza?</p>
+                    </h5>
+
+                    <div class="btns">
+                        <button type="button" class="btn btn-dark" (click)="cancel()">Cancelar</button>
+                        <button class="btn btn-outline-danger" style="margin-left: 1.5rem;"
+                            (click)="submit()">Deletar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

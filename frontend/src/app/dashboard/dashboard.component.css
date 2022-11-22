@@ -1,0 +1,25 @@
+.dashboard-only-icon{
+    display: grid;
+    grid-template-columns: 4.5rem auto;
+}
+
+.dashboard{
+    display: grid;
+    grid-template-columns: 251px auto;
+}
+
+.container-dashboard{
+    display: block; 
+    width: 100%;
+    overflow-x: auto;
+    padding: 1rem;
+    margin-top: 55px;
+    background-color: #e8e8e8b0;
+}
+
+.sidebar{
+    background-color: #e8e8e8b0;
+}
+
+
+

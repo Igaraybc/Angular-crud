@@ -1,0 +1,52 @@
+section{
+    background-color: #e8e8e8b0;
+    padding-top: 2rem;
+}
+
+.container{
+    position:relative;
+    top: 0;
+
+    margin-bottom:  5rem;
+    width: 38%;
+    min-width: 300px;
+    padding: 2rem 1rem 2rem 1rem;
+
+    border-radius: 0.5rem;   
+}
+
+button{
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 0.7rem;
+}
+
+.btn-login{
+    margin-top: 2rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+#senha{
+    display: inline-block; 
+}
+
+
+ /* formatação do elemento */
+#eye{
+    display: inline-block;
+    margin:9px 0px 0px -28px;
+    cursor:pointer
+}
+ 
+ /* formatação do conteúdo  */
+#eye:before{
+    font-family:FontAwesome;
+    font-size:18px;
+    color: #666;
+    
+}

@@ -1,0 +1,20 @@
+.profile{
+    position: relative;
+    top: 150px;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+}
+
+h5{
+    margin-bottom: 3rem;
+}
+
+.name, .email{
+    margin-bottom: 2rem;
+    color: #666;
+    opacity: 0.8;
+}
+
+

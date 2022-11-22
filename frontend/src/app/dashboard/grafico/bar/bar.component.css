@@ -1,0 +1,31 @@
+.select-form{
+    border: 1px solid rgba(138, 136, 136, 0.185);
+    border-radius: 0.3rem;
+
+    padding: 0.25rem 1rem;  
+    margin: 0px 12px;
+
+    background-color: white;
+}
+
+.btn-dark{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.87);
+    border-radius: 0.3rem;
+    padding: 0.1rem 1.2rem;
+    margin-left: 12px;
+}
+
+.card-header{
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #edf1f7;
+    border-top-left-radius: 0.17rem;
+    border-top-right-radius: 0.17rem;
+    font-size: .9375rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+}

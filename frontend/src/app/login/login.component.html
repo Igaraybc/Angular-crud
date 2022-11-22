@@ -1,0 +1,28 @@
+<section class="login">
+    <div class="card container">
+        <h2 class="text-center">Login</h2>
+        <form [formGroup]="formulario_login" (ngSubmit)="submit()" class="card-body">
+            <div class="form-group">
+                <div [class]="errorCredenciais()" class="invalid-feedback d-block text-center mb-3" role="alert">
+                    {{ msgErro }}
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input formControlName="email" type="text" class="form-control" id="email" placeholder="example@email.com"
+                    [class]="mostrarErro('email')">
+                    <div class="invalid-feedback">{{ verificaEmailInvalido() }}</div>
+                </div>
+
+                <div class="mb-5 form-group">
+                    <label for="senha" class="form-label">Senha</label>
+                    <input formControlName="senha" [type]="mostrar? 'text' : 'password'" class='form-control'  id="senha" [class]="mostrarErro('senha')">
+                    <div *ngIf="!mostrarErro('senha')" id="eye" class='fa' [class]="iconMostrarSenha" (click)="mostrarSenha()"></div>
+                    <div class="invalid-feedback">Campo obrigatório.</div>
+                </div>
+                <p class="clear"></p>
+            </div>
+            <button class="btn btn-dark">Entrar</button>
+        </form>
+        <a routerLink="/signup" class="card-link btn-signup"><small>Não tem cadastro? clique aqui para se cadastrar.</small></a>
+    </div>
+</section>

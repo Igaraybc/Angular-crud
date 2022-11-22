@@ -1,0 +1,75 @@
+#edit, #delete{
+    margin-right: 1rem;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+table{
+    width: 100%; 
+    color: #212529; 
+    vertical-align: top;
+    border-left: 1px solid #ececec;
+    border-right: 1px solid #ececec;
+}
+
+th, td  {
+    padding: 13px;
+    text-align: left;
+    border-top: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
+}
+
+th {
+    background-color: #f8f9fa;
+}
+
+td{
+    background-color: white;
+}
+
+td:not(td:last-child) {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.mg{
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.table-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0.1rem 2rem;
+}
+
+
+.btn-add{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.87);
+    border-radius: 0.3rem;
+    padding: 0.25rem 2.5rem;
+    margin-right: 0.3rem;
+}
+
+input{
+    display: inline-block;
+    opacity: 0.8;
+    padding: 0.25rem 1rem;
+    border: solid 1px;
+    border-color: rgba(138, 136, 136, 0.3);
+    border-radius: 0.3rem;
+}
+
+.search-icon{
+    margin-left: -30px; 
+    display: inline-block;  
+}

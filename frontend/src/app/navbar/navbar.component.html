@@ -1,0 +1,23 @@
+<div *ngIf="show" (click)="closeDropdown()">
+    <div class="overlay"></div>
+</div>
+  
+<nav class="navbar navbar-expand-lg  navbar-light bg-light">
+    <div class="container-fluid" id="navbar">
+        <a (click)="iconOnly()" class="nav-link align-items-center d-flex mb-3 mb-md-0 text-decoration-none">
+            <i class="fa" [class]="classIcon" style="vertical-align: middle;"></i>
+        </a>
+    
+      <div class="dropdown">
+        
+          <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="d-flex align-items-center  text-decoration-none dropdown-toggle" (click)="clickDropdown()"  id="dropdownUser">
+            <img src="assets/images/user.png" alt="user profile" class="user-icon">
+            {{ user.nome.split(" ")[0]}} {{user.nome.split(" ")[1]}}
+          </a>
+          <ul class="dropdown-menu dropdown-menu-text dropdown-menu-light text-small" [class]="showDropdown()" aria-labelledby="dropdownUser">
+            <li><a class="dropdown-item" *ngIf="authService.isAuthenticated()" routerLink="/profile"><i class="fa fa-user" style="margin-right: 0.4rem;"></i>Perfil</a></li>
+            <li> <a class="dropdown-item" *ngIf="authService.isAuthenticated()" (click)="logout()"><i class="fa fa-sign-out" style="margin-right: 0.4rem;"></i>Sair</a></li>
+          </ul>
+        </div>
+    </div>
+</nav>

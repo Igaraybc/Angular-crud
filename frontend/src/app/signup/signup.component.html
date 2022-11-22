@@ -1,0 +1,51 @@
+<section class="signup">
+    <div class="card container">
+        <h2 class="text-center">Cadastro</h2>
+        <form class="card-body" [formGroup]="formulario_signup" (ngSubmit)="submit()">
+            <div [class]="errorCredenciais()" class="text-center invalid-feedback d-block" role="alert">
+                {{ msgErro }}
+            </div>
+            <div class="form-group">
+                <div class="mb-3">
+                    <app-input-field [classeCss]="mostrarErro('nome')" id="nome" label="Nome"
+                        [control]="formulario_signup.get('nome')" placeholder="Digite seu nome." formControlName="nome">
+                    </app-input-field>
+                </div>
+                <div class="mb-3">
+                    <app-input-field [classeCss]="mostrarErro('cpf')" id="cpf" label="CPF"
+                        [control]="formulario_signup.get('cpf')" placeholder="Digite seu cpf." formControlName="cpf">
+                    </app-input-field>
+                </div>
+                <div class="mb-3">
+                    <app-input-field [classeCss]="mostrarErro('email')" id="email" label="Email"
+                        [control]="formulario_signup.get('email')" placeholder="example@email.com"
+                        formControlName="email"></app-input-field>
+                </div>
+                <div class="mb-3">
+                    <app-input-field [form]="formulario_signup" [classeCss]="mostrarErro('confirmarEmail')"
+                        id="confirmarEmail" label="Confirmar email" [control]="formulario_signup.get('confirmarEmail')"
+                        formControlName="confirmarEmail"></app-input-field>
+                </div>
+                <div class="row">
+                    <div class="mb-5 col-md-6">
+                        <app-input-field [type]="mostrar? 'text' : 'password'" [classeCss]="mostrarErro('senha')"
+                            id="senha" label="Senha" [control]="formulario_signup.get('senha')"
+                            placeholder="Crie sua nova senha" formControlName="senha" type="password"></app-input-field>
+                        <div *ngIf="!mostrarErro('senha')" id="eye" class='fa' [class]="iconMostrarSenha"
+                            (click)="mostrarSenha()"></div>
+                        <app-password-meter [password]="formulario_signup.get('senha')?.value"></app-password-meter>
+                    </div>
+                    <div class="mb-5 col-md-6">
+                        <app-input-field [form]="formulario_signup" [classeCss]="mostrarErro('confirmarSenha')"
+                            id="confirmarSenha" label="Confirmar senha"
+                            [control]="formulario_signup.get('confirmarSenha')" placeholder="Confirme sua senha."
+                            formControlName="confirmarSenha" type="password"></app-input-field>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-dark btn-signup">Cadastrar</button>
+        </form>
+        <a routerLink="/login" class="card-link btn-login"><small>Já tem cadastro? clique aqui para fazer
+                login</small></a>
+    </div>
+</section>

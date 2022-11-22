@@ -1,0 +1,7 @@
+.form-control#senha{
+    display: inline-block;
+}
+
+label {
+    color: #5c5c5c;
+}

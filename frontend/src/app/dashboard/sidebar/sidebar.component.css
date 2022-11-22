@@ -1,0 +1,42 @@
+.sidebar-container{
+    position: fixed;
+    height: 100vh;
+    top:0;
+    padding: 1.5rem;
+    padding-top: 79px;
+    z-index: 2; /*Para o sidebar ficar por cima do 1º overlay*/
+    background-color: #F9F9FB;
+}
+
+.sidebar-container-icon{
+    position: fixed;
+    height: 100vh;
+    top:0;
+    width: 4.5rem;
+    padding-top: 79px;
+    z-index: 2; /*Para o sidebar ficar por cima do 1º overlay*/
+    background-color: #F9F9FB;
+}
+
+.nav-link{
+    color:#696969;
+}
+
+.nav-link.active{
+    color: #FFFFFF;
+    background-color:  rgba(0, 0, 0, 0.87);
+}
+
+hr{
+    margin: 0.7rem;
+    color:rgba(138, 136, 136, 0.493);
+}
+
+.m-r{
+    margin-right: 0.3rem;
+}
+
+a:hover{
+    cursor: pointer;
+}
+

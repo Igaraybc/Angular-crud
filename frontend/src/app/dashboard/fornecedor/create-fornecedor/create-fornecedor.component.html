@@ -1,0 +1,209 @@
+<section class="form-fornecedor">
+    <div class="container">
+        <h3 class="text-center mb-4 text-gray">Cadastro de Fornecedores</h3>
+        <form [formGroup]="formulario_fornecedor" (ngSubmit)="submit()">
+            <div class="form-group">
+                <div *ngIf="errorServer()" class="invalid-feedback d-block text-center mb-3" style="font-size: 16px;">
+                    {{ msgErro }}
+                </div>
+                <div class="title-div">
+                    <div class="title-black">
+                        <h5 class="text-center title"><span style="margin-left: 7px;">INFORMAÇÕES GERAIS</span></h5>
+                    </div>
+                    <div class="tr-right"></div>
+                </div>
+                <div class="row mb-3">
+                    <div class="mb-3 col-md-4">
+                        <app-input-field [classeCss]="mostrarErro('nomeEmpresa')" id="nomeEmpresa"
+                            label="Nome da Empresa" [control]="formulario_fornecedor.get('nomeEmpresa')"
+                            placeholder="Digite o nome da empresa." formControlName="nomeEmpresa"></app-input-field>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <app-input-field [classeCss]="mostrarErro('email')" id="email" label="Email"
+                            [control]="formulario_fornecedor.get('email')" placeholder="example@email.com"
+                            formControlName="email"></app-input-field>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <app-input-field [form]="formulario_fornecedor" [classeCss]="mostrarErro('telefone')"
+                            id="telefone" label="Telefone" [control]="formulario_fornecedor.get('telefone')"
+                            formControlName="telefone" placeholder="(DDD) 98888-8888" (change)="formataTel()">
+                        </app-input-field>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="mb-3 col-md-3">
+                        <app-input-field [classeCss]="mostrarErro('cnpj')" id="cnpj" label="CNPJ"
+                            [control]="formulario_fornecedor.get('cnpj')" placeholder="Digite o cnpj."
+                            formControlName="cnpj" (change)="formataCNPJ()"></app-input-field>
+                    </div>
+                    <div class="mb-3 col-md-3">
+                        <label for="tipoPessoa" class="form-label">Tipo de Pessoa</label>
+                        <select [class]="mostrarErro('tipoPessoa')" formControlName='tipoPessoa' class="form-select"
+                            id="tipoPessoa">
+                            <option value="juridica">Pessoa Jurídica</option>
+                            <option value="fisica">Pessoa Física</option>
+                        </select>
+                        <app-error-msg [control]="formulario_fornecedor.get('tipoPessoa')" label="tipoPessoa">
+                        </app-error-msg>
+                    </div>
+                    <div class="mb-3 col-md-3">
+                        <app-input-field type="number" [classeCss]="mostrarErro('contrato')" id="contrato"
+                            label="Número do contrato" [control]="formulario_fornecedor.get('contrato')"
+                            formControlName="contrato">
+                        </app-input-field>
+                    </div>
+                    <div class="mb-3 col-md-3">
+                        <label for="tipoPregao" class="form-label">Tipo de Pregão</label>
+                        <select [class]="mostrarErro('tipoPregao')" formControlName='tipoPregao' class="form-select"
+                            id="tipoPregao">
+                            <option value="eletronico">Eletrônico</option>
+                            <option value="presencial">Presencial</option>
+                        </select>
+                        <app-error-msg [control]="formulario_fornecedor.get('tipoPregao')" label="tipoPregao">
+                        </app-error-msg>
+                    </div>
+                </div>
+                <div class="row mb-3">
+
+                    <div class="mb-3 col-md-3">
+                        <label for="tipoProcesso" class="form-label">Tipo de Processo</label>
+                        <select [class]="mostrarErro('tipoProcesso')" formControlName='tipoProcesso' class="form-select"
+                            id="tipoProcesso">
+                            <option value="licitatorio">Licitatório</option>
+                            <option value="adesaoContrato">Adesão de contrato</option>
+                        </select>
+                        <app-error-msg [control]="formulario_fornecedor.get('tipoProcesso')" label="tipoProcesso">
+                        </app-error-msg>
+                    </div>
+                    <div class="mb-3 col-md-3">
+                        <label for="tipoServico" class="form-label">Tipo de Serviço</label>
+                        <select [class]="mostrarErro('tipoServico')" formControlName='tipoServico' class="form-select"
+                            id="tipoServico">
+                            <option value="material">Material</option>
+                            <option value="prestacaoServico">Prestação de Serviço</option>
+                        </select>
+                        <app-error-msg [control]="formulario_fornecedor.get('tipoServico')" label="tipoServico">
+                        </app-error-msg>
+                    </div>
+                    <div class="mb-3 col-md-3">
+                        <app-input-field type="date" [classeCss]="mostrarErro('dataSolicitacao')" id="dataSolicitacao"
+                            label="Data da solicitação" [control]="formulario_fornecedor.get('dataSolicitacao')"
+                            formControlName="dataSolicitacao">
+                        </app-input-field>
+                    </div>
+                    <div class="mb-4 col-md-3">
+                        <app-input-field type="date" [classeCss]="mostrarErro('dataEntrega')" id="dataEntrega"
+                            label="Data da entrega" [control]="formulario_fornecedor.get('dataEntrega')"
+                            formControlName="dataEntrega">
+                        </app-input-field>
+                    </div>
+                </div>
+                <div style="border-top: solid 1px rgba(212, 206, 206, 0.692); margin-bottom: 2rem;"></div>
+                <div class="title-div">
+                    <div class="title-black">
+                        <h5 class="text-center title"><span style="margin-left: 7px;">ENDEREÇO</span></h5>
+                    </div>
+                    <div class="tr-right"></div>
+                </div>
+                <div formGroupName="endereco">
+                    <div class="row mb-3">
+                        <div class="mb-3 col-md-3">
+                            <app-input-field [classeCss]="mostrarErro('endereco.cep')" id="cep" label="CEP"
+                                [control]="formulario_fornecedor.get('endereco.cep')" placeholder="Digite o CEP"
+                                formControlName="cep" (change)="changeCep($event.target)"></app-input-field>
+                        </div>
+
+                        <div class="mb-3 col-md-3">
+                            <label for="estado" class="form-label">Estado</label>
+                            <select formControlName='estado' [class]="mostrarErro('endereco.estado')"
+                                class="form-select" id="estado">
+                                <option disabled selected>Selecione um estado...</option>
+                                <option *ngFor="let estado of estados" [value]="estado.sigla">{{estado.nome}} -
+                                    {{estado.sigla}}</option>
+                            </select>
+                            <app-error-msg [control]="formulario_fornecedor.get('endereco.estado')" label="Estado">
+                            </app-error-msg>
+                        </div>
+                        <div class="mb-3 col-md-3">
+                            <label for="cidade" class="form-label">Cidade</label>
+                            <select formControlName='cidade' [class]="mostrarErro('endereco.cidade')"
+                                class="form-select" id="cidade" (change)="preencheCodigo($event.target)">
+                                <option disabled selected>Selecione uma Cidade...</option>
+                                <option *ngFor="let cidade of cidades" [value]="cidade.nome">{{cidade.nome}}</option>
+                            </select>
+                            <app-error-msg [control]="formulario_fornecedor.get('endereco.cidade')" label="Cidade">
+                            </app-error-msg>
+                        </div>
+                        <div class="mb-3 col-md-3">
+                            <app-input-field type="number" [classeCss]="mostrarErro('endereco.codMunicipio')"
+                                id="codMunicipio" label="Cód. do município"
+                                [control]="formulario_fornecedor.get('endereco.codMunicipio')"
+                                formControlName="codMunicipio">
+                            </app-input-field>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="mb-3 col-sm-4">
+                            <app-input-field [classeCss]="mostrarErro('endereco.rua')" id="rua" label="Rua"
+                                [control]="formulario_fornecedor.get('endereco.rua')" formControlName="rua">
+                            </app-input-field>
+                        </div>
+                        <div class="mb-3 col-md-1">
+                            <app-input-field [classeCss]="mostrarErro('endereco.numero')" id="numero" label="Número"
+                                [control]="formulario_fornecedor.get('endereco.numero')" formControlName="numero">
+                            </app-input-field>
+                        </div>
+                        <div class="mb-3 col-md-3">
+                            <app-input-field [classeCss]="mostrarErro('endereco.bairro')" id="bairro" label="Bairro"
+                                [control]="formulario_fornecedor.get('endereco.bairro')" formControlName="bairro">
+                            </app-input-field>
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <app-input-field [classeCss]="mostrarErro('endereco.complemento')" id="complemento"
+                                label="Complemento" [control]="formulario_fornecedor.get('endereco.complemento')"
+                                formControlName="complemento">
+                            </app-input-field>
+                        </div>
+                    </div>
+                </div>
+                <div style="border-top: solid 1px rgba(212, 206, 206, 0.692); margin-bottom: 2rem;"></div>
+                <div class="title-div">
+                    <div class="title-black">
+                        <h5 class="text-center title"><span style="margin-left: 7px;">DADOS BANCÁRIOS</span></h5>
+                    </div>
+                    <div class="tr-right"></div>
+                </div>
+                <div formGroupName="banco" class="row">
+                    <div class="mb-3 col-md-4">
+                        <app-input-field type="text" [classeCss]="mostrarErro('banco.nome')" id="nome"
+                            label="Nome do Banco" [control]="formulario_fornecedor.get('banco.nome')"
+                            formControlName="nome">
+                        </app-input-field>
+                    </div>
+                    <div class="mb-3 col-md-2">
+                        <app-input-field type="number" [classeCss]="mostrarErro('banco.codigo')" id="codigo"
+                            label="Código do Banco" [control]="formulario_fornecedor.get('banco.codigo')"
+                            formControlName="codigo">
+                        </app-input-field>
+                    </div>
+                    <div class="mb-3 col-md-2">
+                        <app-input-field type="number" [classeCss]="mostrarErro('banco.agencia')" id="agencia"
+                            label="Agência" [control]="formulario_fornecedor.get('banco.agencia')"
+                            formControlName="agencia">
+                        </app-input-field>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <app-input-field type="number" [classeCss]="mostrarErro('banco.conta')" id="conta"
+                            label="Número da Conta" [control]="formulario_fornecedor.get('banco.conta')"
+                            formControlName="conta">
+                        </app-input-field>
+                    </div>
+                </div>
+            </div>
+            <div class="btns">
+                <button type="button" class="btn btn-dark btn-signup" (click)="cancel()">Cancelar</button>
+                <button class="btn btn-dark btn-signup" style="margin-left: 1.5rem;">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+</section>

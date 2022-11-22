@@ -1,0 +1,10 @@
+<app-navbar (changeMenu)="changeDashboard($event)"></app-navbar>
+<section [class]="className">
+    <div class="sidebar">
+        <app-sidebar [icon]="only_icon"></app-sidebar>
+    </div>
+
+    <div class="container-dashboard">
+        <router-outlet></router-outlet>
+    </div>
+</section>

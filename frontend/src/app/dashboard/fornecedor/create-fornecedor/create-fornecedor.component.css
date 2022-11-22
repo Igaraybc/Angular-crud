@@ -1,0 +1,45 @@
+.container{
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+}
+
+.btns{
+    text-align: end;
+}
+
+.form-label{
+    color: #5c5c5c;
+}
+
+.title{
+    font-size: 16px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:0;
+}
+
+.title-black{
+    width: 16%;
+    padding: 0.25rem 0.5rem;
+    
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.87);
+    
+    border-bottom-left-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
+}
+
+.tr-right {
+    width: 0; 
+    height: 0; 
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 20px solid rgba(0, 0, 0, 0.87);
+}
+
+.title-div{
+    margin-bottom: 1.5rem;
+    display:flex;
+}
