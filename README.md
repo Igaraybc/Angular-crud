@@ -7,6 +7,8 @@ This backend project was generated with Node.js and database localhost with mong
 
 `git clone git@github.com:Igaraybc/Angular-crud.git`
 
+[Excute each one at different terminals]
+
 ### Backend
 
 `npm install`
